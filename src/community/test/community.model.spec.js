@@ -1,3 +1,4 @@
+require("leaked-handles");
 const mongoose = require("mongoose");
 const Community = require("../community.model");
 const newCommunity = require("./resources/new-community.json");
@@ -33,6 +34,7 @@ describe("CommunityModel", () => {
 
   afterAll(async () => {
     await connection.close();
+    await mongoose.disconnect();
   });
 
   it("initialises community", async () => {

@@ -6,7 +6,7 @@
     "start": "cross-env NODE_ENV=production node server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon server.js",
     "test": "cross-env NODE_ENV=test jest",
-    "test:watch": "cross-env NODE_ENV=test jest --watchAll",
+    "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:coverage": "cross-env NODE_ENV=test jest --coverage"
   },
   "keywords": [],
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
     "jest": "^26.1.0",
+    "leaked-handles": "^5.2.0",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }
