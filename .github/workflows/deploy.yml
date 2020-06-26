@@ -45,6 +45,7 @@ jobs:
       - name: Set Version Label
         uses: allenevans/set-env@v1.0.0
         with:
+          overwrite: true
           VERSION_LABEL_TIMESTAMP: "echo $(date +'%H%M%S%d%m%Y')"
 
       - name: Printenv
