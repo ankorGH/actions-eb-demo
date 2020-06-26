@@ -45,7 +45,7 @@ jobs:
       - name: Set Version Label
         uses: allenevans/set-env@v1.0.0
         with:
-          VERSION_LABEL_TIMESTAMP: $(date +"%H%M%S%d%m%Y")
+          VERSION_LABEL_TIMESTAMP: echo $(date +"%H%M%S%d%m%Y")
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
