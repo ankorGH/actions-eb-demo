@@ -42,16 +42,10 @@ jobs:
       - name: Generate deployment package
         run: zip -r deploy.zip src/ *.js *.json yarn.lock
 
-      - name: Set Version Label
-        uses: allenevans/set-env@v1.0.0
-        with:
-          overwrite: true
-          VERSION_LABEL_TIMESTAMP: "echo $(date +'%H%M%S%d%m%Y')"
-
-      - name: Printenv
+      - name: Set VERSION_LABEL_TIMESTAMP
         run: |
-          echo "VERSION_LABEL_TIMESTAMP=${VERSION_LABEL_TIMESTAMP}"
-          printenv
+          VERSION_LABEL_TIMESTAMP=$(date +'%H%M%S%d%m%Y')
+          echo $VERSION_LABEL_TIMESTAMP
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
@@ -60,6 +54,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: ${{ secrets.APPLICATION_NAME }}
           environment_name: ${{ secrets.ENVIRONMENT_NAME }}
-          version_label: ${VERSION_LABEL_TIMESTAMP}
+          version_label: $VERSION_LABEL_TIMESTAMP
           region: ${{ secrets.AWS_REGION }}
           deployment_package: deploy.zip
