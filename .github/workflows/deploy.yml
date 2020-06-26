@@ -44,8 +44,8 @@ jobs:
 
       - name: Set Version Label
         run: |
-          'echo ::set-env name=VERSION_LABEL_TIMESTAMP::$(date +"%H:%M:%S_%d-%m-%Y")'
-          'echo ${VERSION_LABEL_TIMESTAMP}'
+          echo ::set-env name=VERSION_LABEL_TIMESTAMP::$(date +"%H:%M:%S_%d-%m-%Y")
+          echo ${VERSION_LABEL_TIMESTAMP}
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
