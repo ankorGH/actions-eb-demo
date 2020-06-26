@@ -44,7 +44,8 @@ jobs:
 
       - name: Set VERSION_LABEL_TIMESTAMP
         run: |
-          echo "::set-env name=VERSION_LABEL_TIMESTAMP::$(date +'%H%M%S%d%m%Y')"
+          TIMESTAMP=$(date +'%H%M%S%d%m%Y')
+          echo "::set-env name=VERSION_LABEL_TIMESTAMP::$TIMESTAMP"
           echo $VERSION_LABEL_TIMESTAMP
 
       - name: Deploy to EB
