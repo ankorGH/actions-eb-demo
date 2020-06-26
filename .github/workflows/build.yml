@@ -28,3 +28,6 @@ jobs:
 
       - name: Run Test
         run: yarn test --forceExit
+
+      - name: Show Coverage
+        run: yarn test:coverage  --forceExit
