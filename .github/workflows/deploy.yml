@@ -43,9 +43,7 @@ jobs:
         run: zip deploy.zip *.js src/**/**.js *.json yarn.lock
 
       - name: Set Version Label
-        run: |
-          echo ::set-env name=VERSION_LABEL_TIMESTAMP::$(date +"%H:%M:%S_%d-%m-%Y")
-          echo ${VERSION_LABEL_TIMESTAMP}
+        run: echo ::set-env name=VERSION_LABEL_TIMESTAMP::$(date +"%H%M%S_%d%m%Y")
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
