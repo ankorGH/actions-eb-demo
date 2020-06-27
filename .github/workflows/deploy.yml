@@ -46,7 +46,9 @@ jobs:
         run: |
           TIMESTAMP=$(date +'%H%M%S%d%m%Y')
           echo "::set-env name=VERSION_LABEL_TIMESTAMP::$TIMESTAMP"
-          echo $VERSION_LABEL_TIMESTAMP
+
+      - name: Debug print env
+        uses: hmarr/debug-action@v1.0.0
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v10
