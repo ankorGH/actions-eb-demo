@@ -27,7 +27,7 @@ jobs:
         run: yarn install
 
       - name: Run Test
-        run: yarn test --forceExit
+        run: yarn test
 
       - name: Show Coverage
-        run: yarn test:coverage  --forceExit
+        run: yarn test:coverage

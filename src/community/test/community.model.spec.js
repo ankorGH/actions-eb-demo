@@ -33,7 +33,6 @@ describe("CommunityModel", () => {
   });
 
   afterAll(async () => {
-    await connection.close();
     await mongoose.disconnect();
   });
 
